@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karina Makeover - Premium Makeup Services">
+    <title>Our Services - Karina Makeover</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html">Reviews</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Now</a></li>                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>Our Exquisite Services</h1>
+            <p>Tailored beauty solutions for every occasion</p>
+        </div>
+    </header>
+
+    <!-- Services Grid -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-container" id="servicesContainer">
+                <!-- Bride Service -->
+                <div class="service-card-large" data-aos="fade-up">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1587840171528-7f2a0cdc4e96?w=400&h=250&fit=crop" alt="Bridal Makeup" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">💍</div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Bridal Makeup</h3>
+                        <p class="description">Complete bridal makeup package with trial and touch-ups. Get the perfect look for your special day with premium products and professional expertise.</p>
+                        
+                        <div class="service-details">
+                            <p><strong>⏱️ Duration:</strong> 2.5 hours</p>
+                            <p><strong>✅ Includes:</strong> Trial + Touch-ups</p>
+                        </div>
+                        
+                        <div class="service-price-large">₹7,999</div>
+                        
+                        <div class="service-cta">
+                            <a href="booking.html?service=bride" class="btn-book-service">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Party Makeup Service -->
+                <div class="service-card-large" data-aos="fade-up">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1609571437281-430f63602d4b?w=400&h=250&fit=crop" alt="Party Makeup" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">✨</div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Party Makeup</h3>
+                        <p class="description">Glamorous makeup for your next party. We create stunning looks that complement your outfit and make you shine all evening long.</p>
+                        
+                        <div class="service-details">
+                            <p><strong>⏱️ Duration:</strong> 1.5 hours</p>
+                            <p><strong>✅ Includes:</strong> Make-up + Photos</p>
+                        </div>
+                        
+                        <div class="service-price-large">₹6,999</div>
+                        
+                        <div class="service-cta">
+                            <a href="booking.html?service=party" class="btn-book-service">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Engagement Makeup Service -->
+                <div class="service-card-large" data-aos="fade-up">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=250&fit=crop" alt="Engagement Makeup" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">💎</div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Engagement Makeup</h3>
+                        <p class="description">Radiant and elegant makeup for your engagement ceremony. Highlight your natural beauty with our professional touch and premium cosmetics.</p>
+                        
+                        <div class="service-details">
+                            <p><strong>⏱️ Duration:</strong> 1 hour</p>
+                            <p><strong>✅ Includes:</strong> Make-up + Glow</p>
+                        </div>
+                        
+                        <div class="service-price-large">₹4,999</div>
+                        
+                        <div class="service-cta">
+                            <a href="booking.html?service=engagement" class="btn-book-service">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Birthday Makeup Service -->
+                <div class="service-card-large" data-aos="fade-up">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1606531824254-05a2c37e8b22?w=400&h=250&fit=crop" alt="Birthday Makeup" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">🎂</div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Birthday Makeup</h3>
+                        <p class="description">Look stunning on your birthday! Our makeup artists will help you look your absolute best for your special celebration.</p>
+                        
+                        <div class="service-details">
+                            <p><strong>⏱️ Duration:</strong> 45 minutes</p>
+                            <p><strong>✅ Includes:</strong> Make-up + Photos</p>
+                        </div>
+                        
+                        <div class="service-price-large">₹3,999</div>
+                        
+                        <div class="service-cta">
+                            <a href="booking.html?service=birthday" class="btn-book-service">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bride Mehndi Service -->
+                <div class="service-card-large" data-aos="fade-up">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&h=250&fit=crop" alt="Bride Mehndi Makeup" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-card-icon">🌿</div>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Bride Mehndi Makeup</h3>
+                        <p class="description">Perfect makeup for your mehndi ceremony. Light, vibrant makeup that complements mehndi colors and keeps you radiant throughout the celebrations.</p>
+                        
+                        <div class="service-details">
+                            <p><strong>⏱️ Duration:</strong> 1.5 hours</p>
+                            <p><strong>✅ Includes:</strong> Make-up + Touch-ups</p>
+                        </div>
+                        
+                        <div class="service-price-large">₹3,999</div>
+                        
+                        <div class="service-cta">
+                            <a href="booking.html?service=mehndi" class="btn-book-service">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Add-ons -->
+    <section class="add-ons-section">
+        <div class="container">
+            <h2 class="section-title">Enhance Your Look</h2>
+            <p class="section-subtitle">Optional add-ons to complement your service</p>
+            
+            <div class="add-ons-grid">
+                <div class="add-on-card">
+                    <div class="add-on-icon">💅</div>
+                    <h3>Nail Art</h3>
+                    <p>₹500 - ₹1,500</p>
+                    <button class="btn-add-on" onclick="addToCart('Nail Art', 999)">Add to Cart</button>
+                </div>
+                
+                <div class="add-on-card">
+                    <div class="add-on-icon">💇</div>
+                    <h3>Hair Styling</h3>
+                    <p>₹800 - ₹2,000</p>
+                    <button class="btn-add-on" onclick="addToCart('Hair Styling', 1500)">Add to Cart</button>
+                </div>
+                
+                <div class="add-on-card">
+                    <div class="add-on-icon">✨</div>
+                    <h3>Skin Prep</h3>
+                    <p>₹300 - ₹800</p>
+                    <button class="btn-add-on" onclick="addToCart('Skin Prep', 500)">Add to Cart</button>
+                </div>
+                
+                <div class="add-on-card">
+                    <div class="add-on-icon">👄</div>
+                    <h3>Lip Art</h3>
+                    <p>₹200 - ₹600</p>
+                    <button class="btn-add-on" onclick="addToCart('Lip Art', 400)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Service Price List</h2>
+            
+            <div class="pricing-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service Name</th>
+                            <th>Base Price</th>
+                            <th>Duration</th>
+                            <th>Includes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bridal Makeup</td>
+                            <td>₹7,999</td>
+                            <td>2.5 hours</td>
+                            <td>Trial + Touch-ups</td>
+                        </tr>
+                        <tr>
+                            <td>Party Makeup</td>
+                            <td>₹6,999</td>
+                            <td>1.5 hours</td>
+                            <td>Make-up + Photos</td>
+                        </tr>
+                        <tr>
+                            <td>Engagement Makeup</td>
+                            <td>₹4,999</td>
+                            <td>1 hour</td>
+                            <td>Make-up + Glow</td>
+                        </tr>
+                        <tr>
+                            <td>Birthday Makeup</td>
+                            <td>₹3,999</td>
+                            <td>45 mins</td>
+                            <td>Make-up + Touch-ups</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Clients Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Absolutely brilliant! The bridal makeup was flawless and made me feel like royalty. Can't thank Karina enough!"</p>
+                    <p class="testimonial-author">- Priya Singh, Bride</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Professional, punctual, and incredibly talented. My engagement photos look stunning thanks to Karina!"</p>
+                    <p class="testimonial-author">- Anjali Patel, Engagement</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The party makeup lasted the entire evening without any touch-ups needed. Highly recommend!"</p>
+                    <p class="testimonial-author">- Neha Kapoor, Party</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform?</h2>
+            <p>Book your appointment today and experience luxury beauty</p>
+            <a href="booking.html" class="btn btn-primary-large">Book Your Service</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ hello@karinamakeover.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>

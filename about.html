@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Karina Makeover - Premium Beauty & Makeup Services">
+    <title>About Us - Karina Makeover</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html">Reviews</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Now</a></li>
+                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>
+                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">About Us</h1>
+            <p class="page-subtitle">Crafting beauty with passion and expertise</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>The Story of Karina Makeover</h2>
+                    <p>Welcome to Karina Makeover, where beauty meets artistry. Founded in 2016, we've been serving the beauty needs of Mumbai's most discerning clients for over 8 years.</p>
+                    <p>At the heart of our business is a simple belief: every woman deserves to feel beautiful and confident. Our mission is to enhance natural beauty and create unforgettable moments for our clients.</p>
+                    <p>We specialize in luxury makeup services for all occasions - from intimate bridal moments to grand celebrations. Each makeup application is a unique art piece, tailored to bring out your best self.</p>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <div style="background: linear-gradient(135deg, #d4af37, #c9a227); border-radius: 12px; padding: 2rem; text-align: center; color: white;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">💄</div>
+                        <p style="font-size: 1.2rem;">Professional Makeup Artist</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">8+ Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us-section" style="background: #f9f9f9; padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title text-center">Why Choose Karina Makeover?</h2>
+            <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="feature-card" data-aos="zoom-in">
+                    <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">✨</div>
+                    <h3>Premium Products</h3>
+                    <p>We use only top-quality, international brands to ensure your skin looks and feels amazing.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">🎨</div>
+                    <h3>Expert Artistry</h3>
+                    <p>Our makeup artist is highly trained with certifications from international beauty schools.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">⏰</div>
+                    <h3>Punctual Service</h3>
+                    <p>We believe your time is precious. We're always on time, every time.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+                    <h3>100% Satisfaction</h3>
+                    <p>If you're not completely satisfied, we'll make it right, guaranteed.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
+                    <h3>Affordable Luxury</h3>
+                    <p>Premium quality makeup services at competitive prices - luxury for everyone.</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="feature-icon" style="font-size: 2.5rem; margin-bottom: 1rem;">📱</div>
+                    <h3>Easy Booking</h3>
+                    <p>Book your appointment online in minutes. Flexible scheduling to suit your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Summary -->
+    <section class="services-summary">
+        <div class="container">
+            <h2 class="section-title text-center">Our Specialties</h2>
+            <div class="services-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div class="service-item" data-aos="fade-up">
+                    <h4>💍 Bridal Makeup</h4>
+                    <p>Make your wedding day unforgettable with our signature bridal makeup service.</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+                    <h4>🎉 Party Makeup</h4>
+                    <p>Stand out at every celebration with our glamorous party makeup looks.</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+                    <h4>💫 Engagement Makeup</h4>
+                    <p>Radiant and elegant makeup perfect for your engagement celebrations.</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+                    <h4>🎂 Birthday Makeup</h4>
+                    <p>Celebrate your special day with a fresh, flawless makeup look.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Experience Luxury Makeup?</h2>
+            <p>Contact us today to book your appointment or learn more about our services.</p>
+            <a href="booking.html" class="btn btn-primary-large">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📱</a>
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Bridal Makeup</a></li>
+                        <li><a href="services.html">Party Makeup</a></li>
+                        <li><a href="services.html">Engagement Makeup</a></li>
+                        <li><a href="services.html">Birthday Makeup</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="testimonials.html">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ hello@karinamakeover.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+</body>
+</html>

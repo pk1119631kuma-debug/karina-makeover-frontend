@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karina Makeover - Book Your Appointment">
+    <title>Book Appointment - Karina Makeover</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="booking.html" class="active btn-primary">Book Now</a></li>
+                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>
+                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>Book Your Appointment</h1>
+            <p>Reserve your slot for a luxurious makeover experience</p>
+        </div>
+    </header>
+
+    <!-- Booking Form -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-form-wrapper">
+                    <h2>Fill Your Details</h2>
+                    <form id="bookingForm" class="booking-form">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Personal Information</h3>
+                            
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                                <span class="error-message" id="fullNameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+                            
+                            <button type="button" class="btn btn-secondary" onclick="nextStep(1)">Next</button>
+                        </div>
+
+                        <!-- Step 2: Service & Date Selection -->
+                        <div class="form-step" id="step-2">
+                            <h3>Select Service & Date</h3>
+                            
+                            <div class="form-group">
+                                <label for="service">Select Service *</label>
+                                <select id="service" name="service" required onchange="updateServicePrice()">
+                                    <option value="">Choose a service</option>
+                                    <option value="bridal">Bridal Makeup - ₹7,999</option>
+                                    <option value="party">Party Makeup - ₹6,999</option>
+                                    <option value="engagement">Engagement Makeup - ₹4,999</option>
+                                    <option value="birthday">Birthday Makeup - ₹3,999</option>
+                                </select>
+                                <span class="error-message" id="serviceError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date">Select Date *</label>
+                                <input type="date" id="date" name="date" required min="">
+                                <span class="error-message" id="dateError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="time">Select Time *</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Choose a time</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                </select>
+                                <span class="error-message" id="timeError"></span>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                                <button type="button" class="btn btn-secondary" onclick="nextStep(2)">Next</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Additional Information -->
+                        <div class="form-step" id="step-3">
+                            <h3>Additional Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="occasion">Special Occasion</label>
+                                <select id="occasion" name="occasion">
+                                    <option value="">Select occasion (optional)</option>
+                                    <option value="wedding">Wedding</option>
+                                    <option value="engagement">Engagement</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="party">Party/Event</option>
+                                    <option value="photoshoot">Photoshoot</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="skinType">Skin Type</label>
+                                <select id="skinType" name="skinType">
+                                    <option value="">Select skin type</option>
+                                    <option value="oily">Oily</option>
+                                    <option value="dry">Dry</option>
+                                    <option value="combination">Combination</option>
+                                    <option value="sensitive">Sensitive</option>
+                                    <option value="normal">Normal</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="allergies">Any Allergies or Skin Conditions?</label>
+                                <textarea id="allergies" name="allergies" rows="4" placeholder="Please mention any allergies or skin conditions..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="specialRequests">Special Requests</label>
+                                <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Any specific preferences or requests..."></textarea>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+                                <button type="button" class="btn btn-secondary" onclick="nextStep(3)">Next</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Review & Confirm -->
+                        <div class="form-step" id="step-4">
+                            <h3>Review Your Booking</h3>
+                            
+                            <div class="booking-summary">
+                                <div class="summary-item">
+                                    <span class="label">Name:</span>
+                                    <span class="value" id="reviewName"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Email:</span>
+                                    <span class="value" id="reviewEmail"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Phone:</span>
+                                    <span class="value" id="reviewPhone"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Service:</span>
+                                    <span class="value" id="reviewService"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Date & Time:</span>
+                                    <span class="value" id="reviewDateTime"></span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Price:</span>
+                                    <span class="value" id="reviewPrice"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to the terms and conditions</label>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(4)">Back</button>
+                                <button type="submit" class="btn btn-primary-large">Confirm Booking</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="booking-progress">
+                    <div class="progress-item active" data-step="1">
+                        <div class="progress-number">1</div>
+                        <div class="progress-label">Personal Info</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-item" data-step="2">
+                        <div class="progress-number">2</div>
+                        <div class="progress-label">Service & Date</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-item" data-step="3">
+                        <div class="progress-number">3</div>
+                        <div class="progress-label">Details</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-item" data-step="4">
+                        <div class="progress-number">4</div>
+                        <div class="progress-label">Review</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ hello@karinamakeover.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/sms-service.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

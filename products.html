@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karina Makeover - Premium Makeup Products">
+    <title>Products - Karina Makeover</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Now</a></li>
+                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>
+                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>Premium Beauty Products</h1>
+            <p>Luxury makeup and skincare essentials</p>
+        </div>
+    </header>
+
+    <!-- Filters & Search -->
+    <section class="products-filter">
+        <div class="container">
+            <div class="filter-header">
+                <div class="filter-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <select id="categoryFilter" onchange="filterProducts()">
+                            <option value="">All Categories</option>
+                            <option value="foundations">Foundations</option>
+                            <option value="lipsticks">Lipsticks</option>
+                            <option value="eyeshadow">Eyeshadows</option>
+                            <option value="brushes">Brushes</option>
+                            <option value="skincare">Skincare</option>
+                            <option value="primers">Primers</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <select id="priceFilter" onchange="filterProducts()">
+                            <option value="">All Prices</option>
+                            <option value="0-500">₹0 - ₹500</option>
+                            <option value="500-1000">₹500 - ₹1,000</option>
+                            <option value="1000-2000">₹1,000 - ₹2,000</option>
+                            <option value="2000+">₹2,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <select id="sortFilter" onchange="filterProducts()">
+                            <option value="">Sort By</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name: A to Z</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Admin Controls -->
+                <button id="addProductBtn" class="btn-add-product" onclick="openAddProductModal()" style="display: none;">
+                    ➕ Add Product
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalProductName"></h2>
+                    <div class="modal-rating">
+                        <span id="modalRating"></span>
+                        <span id="modalReviews"></span>
+                    </div>
+                    <div class="modal-price">
+                        <span id="modalPrice"></span>
+                    </div>
+                    <p id="modalDescription"></p>
+                    
+                    <div class="quantity-selector">
+                        <button onclick="decreaseQuantity()" class="qty-btn">−</button>
+                        <input type="number" id="quantityInput" value="1" min="1" max="10">
+                        <button onclick="increaseQuantity()" class="qty-btn">+</button>
+                    </div>
+                    
+                    <button class="btn btn-primary-large" onclick="addProductToCart()">Add to Cart</button>
+                    
+                    <div class="product-features">
+                        <h4>Product Details</h4>
+                        <ul id="modalFeatures"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content modal-form">
+            <span class="close-modal" onclick="closeAddProductModal()">&times;</span>
+            <h2 id="addProductTitle">Add New Product</h2>
+            <form id="addProductForm" onsubmit="handleAddProduct(event)">
+                <div class="form-group">
+                    <label for="productName">Product Name *</label>
+                    <input type="text" id="productName" required placeholder="Enter product name">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Category *</label>
+                        <select id="productCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="foundations">Foundations</option>
+                            <option value="lipsticks">Lipsticks</option>
+                            <option value="eyeshadow">Eyeshadows</option>
+                            <option value="brushes">Brushes</option>
+                            <option value="skincare">Skincare</option>
+                            <option value="primers">Primers</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Price *</label>
+                        <input type="number" id="productPrice" required placeholder="₹0" min="0">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" placeholder="Product description" rows="4"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productImageUrl">Image URL</label>
+                    <input type="url" id="productImageUrl" placeholder="https://example.com/image.jpg">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productRating">Rating</label>
+                        <input type="number" id="productRating" placeholder="4.5" min="0" max="5" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input type="number" id="productStock" placeholder="10" min="0">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddProductModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Get Your Beauty Essentials</h2>
+            <p>Shop our curated collection of premium products</p>
+            <a href="cart.html" class="btn btn-primary-large">View Cart</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ hello@karinamakeover.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

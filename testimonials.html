@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karina Makeover - Customer Testimonials & Reviews">
+    <title>Testimonials - Karina Makeover</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html" class="active">Reviews</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Now</a></li>
+                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>
+                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Customer Testimonials</h1>
+            <p class="page-subtitle">See what our happy clients have to say about their makeover experience</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Karina's makeup was absolutely flawless on my wedding day! I felt like a princess. Highly recommended for bridal makeup!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">👰</div>
+                        <div>
+                            <h4>Priya Sharma</h4>
+                            <p>Bridal Makeup - Jan 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The party makeup was stunning! Lasted the entire night and I got so many compliments. Thank you Karina!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">🎉</div>
+                        <div>
+                            <h4>Ananya Patel</h4>
+                            <p>Party Makeup - Feb 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Professional, punctual, and incredibly talented. My engagement look was perfect. Such an amazing experience!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">💍</div>
+                        <div>
+                            <h4>Neha Verma</h4>
+                            <p>Engagement Makeup - Mar 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Best makeup artist I've ever worked with! Very attentive to details and uses premium products only."</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">✨</div>
+                        <div>
+                            <h4>Kavya Singh</h4>
+                            <p>Birthday Makeup - Feb 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Excellent products! I bought the matte foundation and liquid lipstick from their store - absolutely love them!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">💄</div>
+                        <div>
+                            <h4>Riya Kulkarni</h4>
+                            <p>Product Review - Mar 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Karina is not just a makeup artist, she's an artist! The makeup lasted 12 hours and looked fresh the entire time."</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">🌟</div>
+                        <div>
+                            <h4>Meera Gupta</h4>
+                            <p>Party Makeup - Jan 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="zoom-in">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfaction Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" style="background: linear-gradient(135deg, #d4af37, #c9a227); padding: 3rem;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Join Our Happy Clients?</h2>
+            <p style="color: white; margin-bottom: 2rem; font-size: 1.1rem;">Book your appointment today and experience luxury beauty!</p>
+            <a href="booking.html" class="btn btn-primary-large" style="background: white; color: #d4af37;">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📱</a>
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Bridal Makeup</a></li>
+                        <li><a href="services.html">Party Makeup</a></li>
+                        <li><a href="services.html">Engagement Makeup</a></li>
+                        <li><a href="services.html">Birthday Makeup</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ hello@karinamakeover.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+</body>
+</html>

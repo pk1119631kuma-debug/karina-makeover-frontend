@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMS & Notification Logs - Karina Makeover">
+    <title>SMS Logs - Karina Makeover Admin</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #d4af37;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #d4af37;
+        }
+
+        .stat-card h3 {
+            color: #d4af37;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logs-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logs-container h2 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f9f9f9;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid #d4af37;
+            color: #333;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .status-sent {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        .status-failed {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .message-preview {
+            max-width: 300px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .timestamp {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            background: #d4af37;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-right: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #c9a227;
+        }
+
+        .btn-secondary {
+            background: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #555;
+        }
+
+        .button-group {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="admin.html" class="back-link">← Back to Admin Panel</a>
+
+        <h1>📱 SMS & Notification Logs</h1>
+
+        <!-- Statistics -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total SMS Sent</h3>
+                <div class="number" id="totalSMS">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Order Confirmations</h3>
+                <div class="number" id="orderSMS">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Booking Confirmations</h3>
+                <div class="number" id="bookingSMS">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Success Rate</h3>
+                <div class="number" id="successRate">100%</div>
+            </div>
+        </div>
+
+        <!-- SMS Logs -->
+        <div class="logs-container">
+            <h2>Recent SMS Messages</h2>
+            
+            <div class="button-group">
+                <button class="btn" onclick="loadSMSLogs()">🔄 Refresh</button>
+                <button class="btn btn-secondary" onclick="clearAllLogs()">🗑️ Clear All Logs</button>
+                <button class="btn btn-secondary" onclick="exportLogs()">📥 Export as CSV</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phone Number</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="smsTableBody">
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: #999; padding: 2rem;">
+                            Loading SMS logs...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Load SMS logs on page load
+        window.addEventListener('load', function() {
+            loadSMSLogs();
+        });
+
+        function loadSMSLogs() {
+            const smsLog = JSON.parse(localStorage.getItem('smsLog')) || [];
+            const tableBody = document.getElementById('smsTableBody');
+
+            // Calculate stats
+            document.getElementById('totalSMS').textContent = smsLog.length;
+            
+            // Count order vs booking SMS (simple heuristic)
+            const orderCount = smsLog.filter(s => s.message.includes('ORDER')).length;
+            const bookingCount = smsLog.filter(s => s.message.includes('BOOKING')).length;
+            
+            document.getElementById('orderSMS').textContent = orderCount;
+            document.getElementById('bookingSMS').textContent = bookingCount;
+            document.getElementById('successRate').textContent = '100%';
+
+            if (smsLog.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="4">
+                            <div class="empty-state">
+                                <p>📭 No SMS logs yet</p>
+                                <p>SMS notifications will appear here when customers place orders or make bookings.</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // Sort by timestamp (newest first)
+            smsLog.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            // Display logs
+            tableBody.innerHTML = smsLog.map(log => {
+                const date = new Date(log.timestamp);
+                const timeString = date.toLocaleString('en-IN', { 
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+
+                return `
+                    <tr>
+                        <td><strong>${log.phone}</strong></td>
+                        <td><div class="message-preview">${log.message}</div></td>
+                        <td><span class="status-${log.status}">${log.status.toUpperCase()}</span></td>
+                        <td><span class="timestamp">${timeString}</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function clearAllLogs() {
+            if (confirm('⚠️ Are you sure you want to clear all SMS logs? This cannot be undone.')) {
+                localStorage.removeItem('smsLog');
+                loadSMSLogs();
+                alert('✅ All SMS logs cleared!');
+            }
+        }
+
+        function exportLogs() {
+            const smsLog = JSON.parse(localStorage.getItem('smsLog')) || [];
+            
+            if (smsLog.length === 0) {
+                alert('❌ No logs to export');
+                return;
+            }
+
+            // Create CSV content
+            let csv = 'Phone Number,Message,Status,Timestamp\n';
+            smsLog.forEach(log => {
+                const date = new Date(log.timestamp).toISOString();
+                csv += `"${log.phone}","${log.message}","${log.status}","${date}"\n`;
+            });
+
+            // Download CSV
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `sms-logs-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

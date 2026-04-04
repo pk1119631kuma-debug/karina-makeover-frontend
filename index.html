@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karina Makeover - Premium Beauty & Makeup Services">
+    <meta name="keywords" content="makeup, beauty, bridal makeup, party makeup, makeover, salon">
+    <title>Karina Makeover - Luxury Beauty & Makeup Services</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html">Reviews</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Now</a></li>
+                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://media.istockphoto.com/videos/portrait-of-beautiful-girl-with-perfect-makeup-video-id1345436776?s=640x640" type="video/mp4">
+                <img src="https://images.unsplash.com/photo-1596398671067-b627e5ad1c4f?w=1200&h=800&fit=crop" alt="Luxury Makeup Background">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="floating-elements">
+                <div class="element element-1">✨</div>
+                <div class="element element-2">💄</div>
+                <div class="element element-3">✨</div>
+                <div class="element element-4">💎</div>
+            </div>
+            
+            <h1 class="hero-title" data-aos="fade-up">Timeless Beauty Redefined</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Experience luxury makeup that enhances your natural radiance</p>
+            
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="booking.html" class="btn btn-primary-large">Book Your Appointment</a>
+                <a href="services.html" class="btn btn-secondary-large">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services -->
+    <section class="featured-services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Premium Services</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Crafted for every special moment</p>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">💍</div>
+                    <h3>Bridal Makeup</h3>
+                    <p>Perfect for your big day</p>
+                    <div class="service-price">₹7,999</div>
+                    <a href="booking.html" class="btn-service">Book Now</a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">🎉</div>
+                    <h3>Party Makeup</h3>
+                    <p>Glam up for celebrations</p>
+                    <div class="service-price">₹6,999</div>
+                    <a href="booking.html" class="btn-service">Book Now</a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">💫</div>
+                    <h3>Engagement Makeup</h3>
+                    <p>Radiant for your special moment</p>
+                    <div class="service-price">₹4,999</div>
+                    <a href="booking.html" class="btn-service">Book Now</a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">🎂</div>
+                    <h3>Birthday Makeup</h3>
+                    <p>Add shine to your celebration</p>
+                    <div class="service-price">₹3,999</div>
+                    <a href="booking.html" class="btn-service">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why Choose Karina Makeover</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Expert Artists</h3>
+                    <p>Professionally trained makeup artists with 10+ years experience</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Products</h3>
+                    <p>International brands & hypoallergenic products</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Quick Booking</h3>
+                    <p>Instant appointment scheduling with real-time availability</p>
+                </div>
+                
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Customer Care</h3>
+                    <p>24/7 customer support & satisfaction guaranteed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Client Stories</h2>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonial-slide" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <img src="https://i.pravatar.cc/100?u=1" alt="Client" class="testimonial-avatar">
+                        <div>
+                            <h4>Priya Singh</h4>
+                            <p class="testimonial-role">Bride</p>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Karina made me feel like a princess on my wedding day. The makeup was flawless and lasted throughout the day. Highly recommended!"</p>
+                </div>
+                
+                <div class="testimonial-slide" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-header">
+                        <img src="https://i.pravatar.cc/100?u=2" alt="Client" class="testimonial-avatar">
+                        <div>
+                            <h4>Anjali Patel</h4>
+                            <p class="testimonial-role">Party Goer</p>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"The party makeup was absolutely stunning! I received compliments all evening. The color palette chosen for me was perfect!"</p>
+                </div>
+                
+                <div class="testimonial-slide" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-header">
+                        <img src="https://i.pravatar.cc/100?u=3" alt="Client" class="testimonial-avatar">
+                        <div>
+                            <h4>Neha Kapoor</h4>
+                            <p class="testimonial-role">Regular Cliente</p>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Professional, punctual, and talented. Karina understands what suits my face perfectly. I've been a loyal client for 3 years!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="gallery-preview">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Recent Works</h2>
+            
+            <div class="gallery-grid">
+                <a href="#" class="gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1596398671067-b627e5ad1c4f?w=300&h=300&fit=crop" alt="Gallery 1" loading="lazy">
+                    <div class="gallery-overlay">Bridal Makeup</div>
+                </a>
+                <a href="#" class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e21cc028cb29?w=300&h=300&fit=crop" alt="Gallery 2" loading="lazy">
+                    <div class="gallery-overlay">Party Glam</div>
+                </a>
+                <a href="#" class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1512203591857-c922601ebd09?w=300&h=300&fit=crop" alt="Gallery 3" loading="lazy">
+                    <div class="gallery-overlay">Engagement Look</div>
+                </a>
+                <a href="#" class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop" alt="Gallery 4" loading="lazy">
+                    <div class="gallery-overlay">Everyday Look</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Ready to Look Your Best?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Book your appointment today and experience luxury beauty</p>
+            <a href="booking.html" class="btn btn-primary-large" data-aos="fade-up" data-aos-delay="200">Schedule Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📱</a>
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Bridal Makeup</a></li>
+                        <li><a href="services.html">Party Makeup</a></li>
+                        <li><a href="services.html">Engagement Makeup</a></li>
+                        <li><a href="services.html">Birthday Makeup</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">View Cart</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 9123429201</p>
+                    <p>✉️ karinamakeover@gmail.com</p>
+                    <p>📍 Near Kali Mandil Chitarpur, Ramgarh, Jharkhand 825101</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

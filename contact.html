@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Karina Makeover - Get in Touch">
+    <title>Contact Us - Karina Makeover</title>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>KARINA</h1>
+                <span class="tagline">MAKEOVER</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="testimonials.html">Reviews</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Now</a></li>
+                <li><a href="cart.html" class="btn-secondary cart-btn">🛒 Cart <span id="cartCount">0</span></a></li>
+                
+                <!-- User Profile Section (shown when logged in) -->
+                <li id="profileSection" class="profile-section" style="display: none;">
+                    <button id="profileBtn" class="profile-btn">
+                        <span class="profile-icon">👤</span>
+                        <span id="profileName">User</span>
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <div class="profile-header">
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                        <ul class="profile-menu">
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="booking.html">My Bookings</a></li>
+                            <li><a href="cart.html">My Cart</a></li>
+                            <li><hr></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Sign In Button (shown when not logged in) -->
+                <li id="signInLink"><a href="login.html" class="btn-secondary">Sign In</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">Get in touch with Karina Makeover</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-container" data-aos="fade-right">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="contactName">Full Name *</label>
+                            <input type="text" id="contactName" name="name" required placeholder="Enter your name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" name="email" required placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number *</label>
+                            <input type="tel" id="contactPhone" name="phone" required placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactService">Service Interested In</label>
+                            <select id="contactService" name="service">
+                                <option value="">Select a service</option>
+                                <option value="bridal">Bridal Makeup</option>
+                                <option value="party">Party Makeup</option>
+                                <option value="engagement">Engagement Makeup</option>
+                                <option value="birthday">Birthday Makeup</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" required placeholder="Tell us about your requirements" rows="5"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-large" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-container" data-aos="fade-left">
+                    <div class="contact-info-card">
+                        <h3>📞 Phone</h3>
+                        <p>+91 98765 43210</p>
+                        <p style="font-size: 0.9rem; color: #666;">Available 9 AM - 9 PM</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>✉️ Email</h3>
+                        <p>hello@karinamakeover.com</p>
+                        <p style="font-size: 0.9rem; color: #666;">Response within 24 hours</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>📍 Location</h3>
+                        <p>Mumbai, India</p>
+                        <p style="font-size: 0.9rem; color: #666;">On-site and Studio Services Available</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>💬 Social Media</h3>
+                        <p>Follow us for updates and special offers:</p>
+                        <div class="social-links" style="margin-top: 1rem;">
+                            <a href="#" style="display: inline-block; margin-right: 1rem; font-size: 1.5rem;">📱</a>
+                            <a href="#" style="display: inline-block; margin-right: 1rem; font-size: 1.5rem;">f</a>
+                            <a href="#" style="display: inline-block; font-size: 1.5rem;">💬</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card" style="background: linear-gradient(135deg, #d4af37, #c9a227); color: white;">
+                        <h3>🎁 Special Offer</h3>
+                        <p>First-time customers get <strong>15% off</strong> on any service!</p>
+                        <a href="booking.html" class="btn btn-primary-large" style="background: white; color: #d4af37; margin-top: 1rem; display: inline-block;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="background: #f9f9f9; padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
+            <div class="faq-grid" style="margin-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div class="faq-item" data-aos="fade-up">
+                    <h4>How do I book an appointment?</h4>
+                    <p>You can easily book an appointment through our website using the Book Now button or by calling us directly at +91 98765 43210.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Do you offer trial makeup?</h4>
+                    <p>Yes! We offer trial sessions. Contact us to schedule a consultation and trial makeup at a convenient time.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h4>What is your cancellation policy?</h4>
+                    <p>Cancellations made 48 hours before the appointment are free. Late cancellations may incur charges.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Do you provide makeup for home events?</h4>
+                    <p>Absolutely! We provide on-site makeup services for home events, venues, and studios. Travel charges may apply.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <h4>What brands do you use?</h4>
+                    <p>We use top international brands like MAC, Charlotte Tilbury, NARS, and Indian brands like Lakme for premium quality.</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <h4>How long does makeup typically last?</h4>
+                    <p>Our makeup typically lasts 8-12 hours depending on the occasion and skin type. Bridal makeup is specifically designed to last the entire day and night.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Karina Makeover</h4>
+                    <p>Redefining beauty, one makeover at a time.</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📱</a>
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Bridal Makeup</a></li>
+                        <li><a href="services.html">Party Makeup</a></li>
+                        <li><a href="services.html">Engagement Makeup</a></li>
+                        <li><a href="services.html">Birthday Makeup</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="testimonials.html">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ hello@karinamakeover.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Karina Makeover. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const service = document.getElementById('contactService').value;
+            const message = document.getElementById('contactMessage').value;
+
+            // Save to localStorage for demo
+            const contact = { name, email, phone, service, message, date: new Date().toISOString() };
+            let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+            contacts.push(contact);
+            localStorage.setItem('contacts', JSON.stringify(contacts));
+
+            showNotification('Thank you! We will get back to you soon.', 'success');
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+    <script src="js/common.js"></script>
+</body>
+</html>
